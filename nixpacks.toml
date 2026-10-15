@@ -1,0 +1,5 @@
+[providers]
+php = "8.2"
+
+[phases.setup]
+nixPkgs = ['...', 'php82Extensions.mysqli', 'php82Extensions.pdo_mysql']
