@@ -1,0 +1,422 @@
+
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body, html { overflow-x: hidden; scroll-behavior: smooth; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 50px; z-index: 1000;
+  background: transparent;
+}
+header .logo { font-size: 1.6em; font-weight: bold; color: #fff; letter-spacing: 2px; text-shadow: 0 0 8px rgba(255,255,255,0.4); }
+nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: #ffd700; text-shadow: 0 0 6px #ffd700; }
+
+/* ===== DROPDOWN ===== */
+.dropdown-wrapper { position: relative; }
+.dropdown-btn {
+  background: transparent; border: none; color: #fff;
+  font-size: 1.5em; cursor: pointer; transition: 0.3s;
+}
+.dropdown {
+  display: none; position: absolute; right: 0; top: 30px;
+  background: rgba(0,0,0,0.85); padding: 10px 0;
+  border-radius: 8px; min-width: 140px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.dropdown a {
+  color: #fff; display: block; padding: 10px 15px;
+  text-decoration: none; transition: 0.3s;
+}
+.dropdown a:hover { background: rgba(255,215,0,0.25); color: #ffd700; }
+
+/* ===== SLIDES ===== */
+.slide {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  color: #fff; text-align: center;
+  background-attachment: fixed; background-size: cover; background-position: center;
+}
+
+/* Warna kembali ke versi bold sebelumnya */
+.slide1 {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 40%, #764ba2 100%);
+}
+.slide2 {
+  background: linear-gradient(135deg, #283c86 0%, #45a247 100%);
+}
+.slide3 {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+.slide4 {
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+
+/* ===== SLIDE 1 ===== */
+.slide1 .content {
+  display: flex; justify-content: space-between; align-items: center;
+  width: 80%; max-width: 1200px;
+}
+.text-box { width: 50%; text-align: left; }
+.text-box h1 {
+  font-size: 2.8em; margin-bottom: 15px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.5);
+}
+.text-box p { margin-bottom: 25px; font-size: 1.1em; }
+.image-box img {
+  width: 360px; height: auto; border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* ===== BUTTON ===== */
+.btn-container { display: flex; gap: 15px; }
+.btn {
+  padding: 10px 25px; border: none; border-radius: 25px;
+  background: #ffd700; color: #222; cursor: pointer; font-weight: bold;
+  transition: 0.3s; box-shadow: 0 0 8px rgba(255,215,0,0.6);
+}
+.btn:hover { background: #fff; color: #000; }
+
+/* ===== DONASI ===== */
+form {
+  display: flex; flex-direction: column; gap: 10px; align-items: center;
+  width: 100%; max-width: 400px; margin: 20px auto;
+}
+form input, form textarea {
+  width: 100%; padding: 10px; border-radius: 10px; border: none;
+  font-size: 1em;
+}
+form button {
+  padding: 10px 20px; border: none; border-radius: 25px;
+  background: #ffd700; color: #333; font-weight: bold; cursor: pointer;
+  transition: 0.3s;
+}
+form button:hover { background: #fff; }
+
+/* ===== MAHASISWA ===== */
+.mahasiswa-container {
+  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+}
+.mahasiswa-card {
+  background: rgba(255,255,255,0.15); border-radius: 15px;
+  padding: 20px; width: 250px; text-align: center;
+  transition: 0.3s; box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+.mahasiswa-card:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,215,0,0.5); }
+.mahasiswa-card .foto {
+  width: 100%; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px; margin-bottom: 10px;
+}
+
+/* ===== KEGIATAN ===== */
+.kegiatan-container {
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: 25px; margin-top: 30px; flex-wrap: wrap;
+}
+.kegiatan-besar {
+  background: rgba(255,255,255,0.15);
+  border-radius: 15px; padding: 20px;
+  width: 400px; text-align: center; height: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.kegiatan-besar .foto {
+  width: 100%; height: 250px;
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  border-radius: 10px; margin-bottom: 10px;
+}
+.kegiatan-kecil { display: flex; flex-direction: column; gap: 20px; }
+.kegiatan-kecil .card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 15px; width: 250px; height: 120px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.kegiatan-kecil .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+.kegiatan-kecil .foto {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  border-radius: 10px; margin-bottom: 5px;
+}
+
+/* ===== ANIMATIONS ===== */
+.animate { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+.animate.visible { opacity: 1; transform: translateY(0); }
+.fade-in-left { transform: translateX(-50px); }
+.fade-in-right { transform: translateX(50px); }
+.fade-in-up { transform: translateY(50px); }
+.fade-in-left.visible, .fade-in-right.visible, .fade-in-up.visible { transform: translate(0,0); opacity: 1; }
+
+/* ============================= */
+/* FOOTER MODERN STYLING */
+/* ============================= */
+.footer-modern {
+  width: 100%;
+  background: linear-gradient(135deg, #4f46e5 0%, #6d28d9 50%, #3b82f6 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Efek kilau halus di background */
+.footer-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
+  animation: shine 10s linear infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-50%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+.footer-copy span {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ===== DONASI – DEFAULT HIDDEN ===== */
+#step2, #step3, #step4, #step5 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== STEP 2 DETAIL ===== */
+#step2 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 350px;
+}
+
+/* AGAR TEKS TERLIHAT DI DONASI */
+#step2 *,
+#step2 h1,
+#step2 h2,
+#step2 p,
+#step2 span {
+    color: #0048f0 !important; /* teks gelap kontras */
+}
+
+.mahasiswa-card-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    border: 2px solid #ddd;
+}
+
+.mahasiswa-card-detail .foto {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.mahasiswa-card-detail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #999;
+}
+
+.step2-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* ===== STEP 3 ===== */
+#step3 .nominal-btn {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* ===== STEP 4 ===== */
+#step4 .metode-btn {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* ===== STEP 5 ===== */
+#step5 form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+}
+
+#step5 input,
+#step5 textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* ===== KATEGORI TERPILIH ===== */
+#kategori-terpilih-3,
+#kategori-terpilih-4,
+#kategori-terpilih-5 {
+    color: #1d4ed8 !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+/* Tombol umum */
+.nominal-btn, .metode-btn, .btn-gray, .btn-blue, .btn-green {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nominal-btn:hover, .metode-btn:hover, .btn-gray:hover, .btn-blue:hover, .btn-green:hover {
+  opacity: 0.9;
+}
+
+/* Ukuran tombol & card */
+.w-40 { width: 160px; }
+.max-w-xs { max-width: 320px; }
+
+/* ===== FOTO OTOMATIS SESUAI CARD ===== */
+/* Pastikan semua div.foto menyesuaikan ukuran card */
+.foto {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Gambar di dalam foto mengikuti ukuran card */
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Memenuhi seluruh div tanpa merusak proporsi */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.image-box {
+    width: 360px;          /* sesuaikan dengan layout */
+    height: 360px;         /* pastikan tinggi ada */
+    position: relative;    /* penting agar img absolute bekerja */
+}
+.image-box .foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* CARD grafik tidak ikut melebar */
+.chart-card {
+    width: 320px !important;         /* ukuran*/
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container grafik */
+.chart-container {
+    width: 300px !important;   /* grafik tidak akan melebar */
+    height: 260px !important;
+    margin: auto;
+}
+
+/* Ukuran canvas (Chart.js akan ikut ini) */
+.chart-container canvas {
+    width: 300px !important;
+    height: 260px !important;
+}
+
+/* ===== DASHBOARD FIRST-TIME CARD ===== */
+.first-time-card { display:flex; align-items:center; gap:16px; padding:18px; border-radius:12px; }
+.first-time-card .accent { flex:0 0 6px; }
+.pj-btn-cta {
+  background: linear-gradient(180deg, #F59E0B, #F97316);
+  color: #fff; padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer;
+  font-weight: 700; box-shadow: 0 6px 18px rgba(249,115,22,0.18);
+}
+.pj-btn-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(249,115,22,0.22); }
+
+/* ===== MODAL STRUCTURE ===== */
+.modal-overlay { position: fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.45); padding: 20px; z-index: 2000; }
+.modal-dialog { width:100%; max-width:900px; background:#fff; border-radius:12px; overflow:hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+.modal-header { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background: linear-gradient(90deg, rgba(245,158,11,0.1), rgba(249,115,22,0.06)); border-bottom:1px solid rgba(0,0,0,0.04); }
+.modal-title { font-weight:700; color:#333; }
+.modal-close { background:transparent; border:none; font-size:22px; line-height:1; cursor:pointer; padding:6px 8px; border-radius:8px; }
+.modal-body { padding:18px; max-height:70vh; overflow:auto; }
+
+/* Slight page freeze when modal open */
+body.modal-open { overflow: hidden; }
+
+/* Responsive tweaks */
+@media (max-width:640px){ .first-time-card { flex-direction:column; text-align:center; } .first-time-card .accent { width:40px; height:6px; border-radius:6px; } .pj-btn-cta { width:100%; } }
+
+

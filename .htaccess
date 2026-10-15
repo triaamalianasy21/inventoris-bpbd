@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /androidweb/
+
+# 🔹 Izinkan akses langsung ke folder uploads (agar foto bisa tampil)
+RewriteCond %{REQUEST_URI} ^/androidweb/app/public/uploads/ [NC]
+RewriteRule ^ - [L]
+
+# 🔹 Jika file atau folder tidak ditemukan, arahkan ke public/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?page=$1 [L,QSA]
