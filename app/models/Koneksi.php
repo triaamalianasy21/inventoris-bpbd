@@ -4,10 +4,10 @@ class Koneksi
 {
     public static function connect()
     {
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db   = "pranata_app"; // <-- DB BARU KAMU
+        $host = "bgvb8uq9xlz3nxuaclxj-mysql.services.clever-cloud.com";
+        $user = "uopyv96srm0jjq6l";
+        $pass = "acS6YaXkL4c13EC1ljZl";
+        $db   = "bgvb8uq9xlz3nxuaclxj"; // <-- DB BARU KAMU
 
         $conn = new mysqli($host, $user, $pass, $db);
 
