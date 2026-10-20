@@ -108,8 +108,11 @@ function renderPaginationPengembalian($current, $pages, $q)
                     $fotoItem = (string)$fotoItem;
                     if ($fotoItem === '') continue;
                     $isAbsolute = preg_match('/^https?:\\/\\//', $fotoItem) || str_starts_with($fotoItem, '/');
-                    if (!$isAbsolute && !str_starts_with($fotoItem, 'public/')) {
-                      $fotoItem = 'public/' . ltrim($fotoItem, '/');
+                    if (!$isAbsolute) {
+                      if (!str_starts_with($fotoItem, 'public/')) {
+                        $fotoItem = 'public/' . ltrim($fotoItem, '/');
+                      }
+                      $fotoItem = '/' . ltrim($fotoItem, '/');
                     }
                     $normalized[] = $fotoItem;
                   }
@@ -212,6 +215,9 @@ include __DIR__ . '/../layout/main.php';
     btn.addEventListener('click', function(){
       var src = btn.getAttribute('data-photo');
       if (!src) return;
+      if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/')) {
+        src = '/' + src;
+      }
       preview.src = src;
       modal.classList.remove('hidden');
     });
