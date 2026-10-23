@@ -795,7 +795,7 @@ class PeminjamanController
         if (!move_uploaded_file($file['tmp_name'], $dest)) {
             return [false, 'Gagal menyimpan foto.'];
         }
-        return [true, 'uploads/pengembalian/' . $name];
+        return [true, 'public/uploads/pengembalian/' . $name];
     }
 
     // approve by admin/pengurus
