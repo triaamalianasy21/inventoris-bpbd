@@ -107,14 +107,16 @@ function renderPaginationPengembalian($current, $pages, $q)
                   foreach ($fotoList as $fotoItem) {
                     $fotoItem = (string)$fotoItem;
                     if ($fotoItem === '') continue;
-                    $isAbsolute = preg_match('/^https?:\\/\\//', $fotoItem) || str_starts_with($fotoItem, '/');
-                    if (!$isAbsolute) {
-                      if (!str_starts_with($fotoItem, 'public/')) {
-                        $fotoItem = 'public/' . ltrim($fotoItem, '/');
-                      }
-                      $fotoItem = '/' . ltrim($fotoItem, '/');
+                    
+                    // Hilangkan awalan public/ jika ada dari database
+                    $cleanPath = preg_replace('#^/?public/#', '', $fotoItem);
+                    
+                    // Pastikan diawali dengan /uploads/
+                    if (!str_starts_with($cleanPath, 'uploads/')) {
+                      $cleanPath = 'uploads/' . ltrim($cleanPath, '/');
                     }
-                    $normalized[] = $fotoItem;
+                    
+                    $normalized[] = '/' . $cleanPath;
                   }
                 ?>
                 <td class="px-3 py-3">
@@ -215,9 +217,14 @@ include __DIR__ . '/../layout/main.php';
     btn.addEventListener('click', function(){
       var src = btn.getAttribute('data-photo');
       if (!src) return;
+      
+      // Bersihkan jika ada awalan /public atau public
+      src = src.replace(/^\/?public\//, '/');
+      
       if (!src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('/')) {
         src = '/' + src;
       }
+      
       preview.src = src;
       modal.classList.remove('hidden');
     });
